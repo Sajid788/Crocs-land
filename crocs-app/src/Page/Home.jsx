@@ -7,6 +7,7 @@ import banner5 from "../Banner/banner-5.PNG";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { Link as ReactLink } from "react-router-dom";
 import { Box, Image, Button, Grid, Center } from "@chakra-ui/react";
+import Faq from "../Componant/Faq";
 
 function Home() {
   useEffect(() => {
@@ -126,7 +127,7 @@ function Home() {
         </Center>
         <Center>
           <Box w={"2xl"} p={2} m={2}>
-
+           <Faq/>
           </Box>
         </Center>
       </Box>
