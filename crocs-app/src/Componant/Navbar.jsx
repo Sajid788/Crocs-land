@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import MegaMenu from "./MegaMenu";
+import Searchbar from "./SearchBar";
 
 export const Navbar = () => {
   return (
@@ -28,16 +30,10 @@ export const Navbar = () => {
             />
           </Box>
         </Link>
-        <Link to="/wishlist">
-          <Flex flexDir={"column"} align={"center"} pos={"relative"}>
-            <Text>Wishlist</Text>
-          </Flex>
-        </Link>
-        <Link to="/cart">
-          <Flex flexDir={"column"} align={"center"} pos="relative">
-            <Text>Bag</Text>
-          </Flex>
-        </Link>
+        <MegaMenu/>
+        <Box minWidth={"10rem"} width="30rem" display={{ base: "none", lg: "block" }}>
+            <Searchbar/>
+        </Box>
       </Flex>
     </Box>
   );
