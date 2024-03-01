@@ -1,10 +1,45 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
+import { useToast } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Image,
+  Popover,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverContent,
+  PopoverHeader,
+  PopoverTrigger,
+  Text,
+  Button,
+  Avatar,
+} from "@chakra-ui/react";
+import { BsBag, BsPerson } from "react-icons/bs";
+import { AiOutlineHeart } from "react-icons/ai";
+import { userLogout } from "../Redux/Auth/action";
+
 import MegaMenu from "./MegaMenu";
 import Searchbar from "./SearchBar";
-
 export const Navbar = () => {
+  const dispatch = useDispatch();
+  const { userID, name } = useSelector(({ authReducer }) => authReducer);
+  const { loading } = useSelector(({ authReducer }) => authReducer);
+  const toast = useToast();
+
+  const handleLogout = () => {
+    localStorage.removeItem("userResponse");
+    dispatch(userLogout());
+    toast({
+      title: "Logout successful",
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+  };
+
   return (
     <Box
       position={"sticky"}
@@ -30,11 +65,151 @@ export const Navbar = () => {
             />
           </Box>
         </Link>
-        <MegaMenu/>
-        <Box minWidth={"10rem"} width="30rem" display={{ base: "none", lg: "block" }}>
-            <Searchbar/>
+        <MegaMenu />
+        <Box
+          minWidth={"10rem"}
+          width="30rem"
+          display={{ base: "none", lg: "block" }}
+        >
+          <Searchbar />
         </Box>
+        <Flex gap={{ base: "1rem", md: "2rem" }} align="center">
+          <Popover>
+            <PopoverTrigger>
+              <Flex flexDir={"column"} align={"center"} cursor="pointer">
+                <Text>
+                  {!userID ? (
+                    <BsPerson fontSize={"1.26rem"} />
+                  ) : (
+                    <Avatar name={name} size="sm" />
+                  )}
+                </Text>
+                <Text
+                  fontSize={"0.8rem"}
+                  fontWeight="bold"
+                  display={{ base: "none", md: "block" }}
+                  color={"blackAlpha.600"}
+                >
+                  {!userID ? "Profile" : ""}
+                </Text>
+              </Flex>
+            </PopoverTrigger>
+            <PopoverContent>
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverHeader py="1rem"></PopoverHeader>
+              <PopoverBody>
+                <Flex flexDir={"column"} gap="3" textTransform={"capitalize"}>
+                  {!userID ? (
+                    <Link to="/login">
+                      <Text
+                        pl="2rem"
+                        bg="gray.100"
+                        borderRadius={"md"}
+                        py="0.5rem"
+                      >
+                        Signin / Signup
+                      </Text>
+                    </Link>
+                  ) : (
+                    <Box
+                      pl="2rem"
+                      bg="gray.100"
+                      borderRadius={"md"}
+                      py="0.3rem"
+                    >
+                      <Text fontWeight={"800"}>Hello,</Text>
+                      <Text>{name}</Text>
+                    </Box>
+                  )}
+                  {userID && (
+                    <Link to="/profile">
+                      <Text pl="2rem">Profile</Text>
+                    </Link>
+                  )}
+                  <Link to="/wishlist">
+                    <Text pl="2rem">Wishlists</Text>
+                  </Link>
+                  <Link to="#">
+                    <Text pl="2rem">contact us</Text>
+                  </Link>
+                  {userID && (
+                    <Link>
+                      <Button width="full" onClick={handleLogout}>
+                        Logout
+                      </Button>
+                    </Link>
+                  )}
+                </Flex>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
+          <Link to="/wishlist">
+            <Flex flexDir={"column"} align={"center"} pos={"relative"}>
+              <Text>
+                <AiOutlineHeart fontSize={"1.26rem"} />
+              </Text>
+              <Text
+                fontSize={"0.8rem"}
+                fontWeight="bold"
+                color={"blackAlpha.600"}
+              >
+                Wishlist{" "}
+                {userID && (
+                  <Flex
+                    justify={"center"}
+                    align="center"
+                    pos={"absolute"}
+                    top="-5px"
+                    right="-2px"
+                    width="20px"
+                    height="20px"
+                    color="white"
+                    borderRadius={"50%"}
+                    bg="pink.400"
+                  >
+                    {}
+                  </Flex>
+                )}
+              </Text>
+            </Flex>
+          </Link>
+          <Link to="/cart">
+            <Flex flexDir={"column"} align={"center"} pos="relative">
+              <Text>
+                <BsBag fontSize={"1.26rem"} />
+              </Text>
+              <Text
+                fontSize={"0.8rem"}
+                fontWeight="bold"
+                color={"blackAlpha.600"}
+              >
+                Bag
+                {userID && (
+                  <Flex
+                    justify={"center"}
+                    align="center"
+                    pos={"absolute"}
+                    top="-5px"
+                    right="-12px"
+                    width="20px"
+                    height="20px"
+                    color="white"
+                    borderRadius={"50%"}
+                    bg="pink.400"
+                  >
+                    {}
+                  </Flex>
+                )}
+              </Text>
+            </Flex>
+          </Link>
+          <Box display={{ lg: "none" }}></Box>
+        </Flex>
       </Flex>
+      <Box padding={"8px"} display={{ lg: "none" }}>
+        <Searchbar />
+      </Box>
     </Box>
   );
 };

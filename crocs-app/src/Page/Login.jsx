@@ -15,7 +15,7 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import { authSuccess, gettingUsersData } from "../Redux/Authentication/action";
+import { authSuccess, gettingUsersData } from "../Redux/Auth/action";
 import { tokenGenrator } from "../Component/utils/tokenGenrator";
 import { FaSignInAlt } from "react-icons/fa";
 
