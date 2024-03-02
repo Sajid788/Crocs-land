@@ -16,7 +16,7 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { authSuccess, gettingUsersData } from "../Redux/Auth/action";
-
+import { tokenGenrator } from "../Componant/util/tokenGenerator";
 import { FaSignInAlt } from "react-icons/fa";
 
 import banner1 from "../Banner/banner-1.avif";
@@ -50,8 +50,8 @@ export function Login() {
         });
         navigate("/", { replace: true });
         const { id, username } = authentication[0];
-      
-        const userDetials = { userID: id,  name: username };
+        const token = tokenGenrator();
+        const userDetials = { userID: id, token,  name: username };
         localStorage.setItem("userResponse", JSON.stringify(userDetials));
         dispatch(authSuccess(userDetials));
         setIsLoading(false);

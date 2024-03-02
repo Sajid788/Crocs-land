@@ -20,7 +20,7 @@ import {
     gettingUsersData,
     userRegisterationToApi,
   } from "../Redux/Auth/action";
-  import banner6 from "../files/banner-6.PNG";
+  import banner6 from "../Banner/banner-6.PNG";
   import { BiUserPlus } from "react-icons/bi";
   
   export default function Register() {

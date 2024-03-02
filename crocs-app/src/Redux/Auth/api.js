@@ -3,7 +3,7 @@ import axios from "axios";
 export const registerUser = async (userDetails) => {
 	try {
 		const res = await axios.post(
-			`https://crocsland.onrender.com/users`,
+			`https://cors-backend-dyn7.onrender.com/users`,
 			userDetails,
 		);
 		return res.data;
@@ -15,7 +15,7 @@ export const registerUser = async (userDetails) => {
 /* Getting all users register with same email */
 export const getUserDataFromApi = async () => {
 	try {
-		const res = await axios.get(`https://crocsland.onrender.com/users`);
+		const res = await axios.get(`https://cors-backend-dyn7.onrender.com/users`);
 		return res.data;
 	} catch (error) {
 		return error;
