@@ -3,6 +3,7 @@ import { Box, Grid, Text } from "@chakra-ui/react";
 import { Loading } from "../Componant/Loading";
 import { Error } from "../Componant/Error";
 import { Filter } from "../Componant/Filter";
+import { ProductsCard } from "../Componant/ProductsCard";
 
 export const Products = React.memo(({ isLoading, isError, products }) => {
   if (isLoading) {
@@ -54,6 +55,9 @@ export const Products = React.memo(({ isLoading, isError, products }) => {
           gap={{ base: 4, md: 6, lg: 8 }}
           py={4}
         >
+          {products.map((ele) => (
+						<ProductsCard key={ele.id} data={ele} />
+					))}
         </Grid>
       </Box>
     </Box>
