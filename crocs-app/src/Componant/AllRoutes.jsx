@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../Page/Home";
 import { Login } from "../Page/Login";
 import Register from "../Page/Register";
+import { Products } from "../Page/Product";
 
 /*  All routes here to navigate any page */
  const AllRoute = () => {
@@ -11,6 +12,7 @@ import Register from "../Page/Register";
             <Route path="/" element={<Home/>} />
             <Route path="/login" element={<Login/>} />
             <Route path="/register" element={<Register/>}/>
+            <Route path="/product" element={<Products/>} />
         </Routes>
     );
 };

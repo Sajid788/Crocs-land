@@ -5,9 +5,10 @@ import {
   combineReducers,
 } from "redux";
 import {thunk} from "redux-thunk";
-import { reducer as authReducer } from "../Redux/Auth/reducer";
+import { reducer as authReducer } from "./Auth/reducer";
+import { reducer as productReducer } from "./Product/reducer";
 const rootReducer = combineReducers({
-  authReducer,
+  authReducer,productReducer
 });
 const enhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export  const store = legacy_createStore(
