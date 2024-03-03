@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Select, Tooltip, useToast } from "@chakra-ui/react";
+import SingleProductImageSlider from "./SingleProductImageSlider";
 import {
   addCartRequest,
   addWishlistRequest,
@@ -139,7 +140,12 @@ export const ProductsCard = React.memo((props) => {
       pb={"4"}
     >
       <Box>
-
+      <SingleProductImageSlider
+					images={image}
+					rating={rating}
+					ratingCount={ratingCount}
+					id={id}
+				/>
       </Box>
       <Box px="0px" bg="white">
         <Text
