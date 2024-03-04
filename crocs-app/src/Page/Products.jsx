@@ -29,6 +29,8 @@ export const Products = React.memo(({ isLoading, isError, products }) => {
     );
   }
 
+  console.log(products);
+
   return (
     <Box
       display="flex"

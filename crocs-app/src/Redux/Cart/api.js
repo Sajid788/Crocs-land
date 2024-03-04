@@ -8,7 +8,7 @@ import {
   getWishlistData,
 } from "./action";
 
-const baseUrl = "https://crocsland.onrender.com/users";
+const baseUrl = "https://cors-backend-dyn7.onrender.com/users";
 
 const axiosInstance = axios.create({
   baseURL: baseUrl,
