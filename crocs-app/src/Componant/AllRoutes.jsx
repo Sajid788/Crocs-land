@@ -7,6 +7,7 @@ import { Products } from "../Page/Products";
 import { Men } from "../Page/Men";
 import { Women } from "../Page/Women";
 import { Kid } from "../Page/Kid";
+import ProductDetails from "../Page/ProductDetails";
 
 /*  All routes here to navigate any page */
  const AllRoute = () => {
@@ -19,6 +20,7 @@ import { Kid } from "../Page/Kid";
             <Route path="/men" element={<Men/>} />
             <Route path="/women" element={<Women/>} />
             <Route path="/kid" element={<Kid />} />
+            <Route path="/product/:id" element={<ProductDetails />} />
         </Routes>
     );
 };
