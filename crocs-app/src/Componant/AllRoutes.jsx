@@ -18,10 +18,10 @@ import { Cart } from "../Page/Cart";
             <Route path="/login" element={<Login/>} />
             <Route path="/register" element={<Register/>}/>
             <Route path="/product" element={<Products/>} />
+            <Route path="/product/:id" element={<ProductDetails/>} />
             <Route path="/men" element={<Men/>} />
             <Route path="/women" element={<Women/>} />
             <Route path="/kid" element={<Kid/>} />
-            <Route path="/product/:id" element={<ProductDetails/>} />
             <Route path="/cart" element={<Cart/>} />
         </Routes>
     );

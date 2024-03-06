@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AddToCartCard } from "../Componant/AddToCartCard";
+import PaymentForm from "./PaymentForm";
 import {
   Stack,
   Box,
@@ -111,7 +112,7 @@ export const Cart = () => {
         </Grid>
       </Box>
       <Box flex={{ base: "none", md: ".5" }}>
-
+      {<PaymentForm totalAmount={totalAmount} isAuth={isAuth} />}
       </Box>
     </Stack>
   );
