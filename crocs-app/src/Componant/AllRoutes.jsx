@@ -9,20 +9,22 @@ import { Women } from "../Page/Women";
 import { Kid } from "../Page/Kid";
 import ProductDetails from "../Page/ProductDetails";
 import { Cart } from "../Page/Cart";
+import PaymentSuccessPage from "../Page/PymentSuccessPage";
 
 /*  All routes here to navigate any page */
  const AllRoute = () => {
     return (
         <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/login" element={<Login/>} />
+            <Route path="/" element={<Home/>}/>
+            <Route path="/login" element={<Login/>}/>
             <Route path="/register" element={<Register/>}/>
-            <Route path="/product" element={<Products/>} />
-            <Route path="/product/:id" element={<ProductDetails/>} />
+            <Route path="/product" element={<Products/>}/>
             <Route path="/men" element={<Men/>} />
-            <Route path="/women" element={<Women/>} />
+            <Route path="/women" element={<Women/>}/>
             <Route path="/kid" element={<Kid/>} />
-            <Route path="/cart" element={<Cart/>} />
+            <Route path="/product/:id" element={<ProductDetails/>}/>
+            <Route path="/cart" element={<Cart/>}/>
+            <Route path="/paymentsuccess" element={<PaymentSuccessPage/>}/>
         </Routes>
     );
 };
