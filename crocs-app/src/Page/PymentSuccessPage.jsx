@@ -3,8 +3,6 @@ import { Box, Text, Flex, useToast } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-import "react-toastify/dist/ReactToastify.css";
-
 const PaymentSuccessPage = () => {
     const navigate = useNavigate();
     const toast = useToast()

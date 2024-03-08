@@ -8,6 +8,7 @@ import { Men } from "../Page/Men";
 import { Women } from "../Page/Women";
 import { Kid } from "../Page/Kid";
 import ProductDetails from "../Page/ProductDetails";
+import Wishlist from "../Page/Wishlist";
 import { Cart } from "../Page/Cart";
 import PaymentSuccessPage from "../Page/PymentSuccessPage";
 
@@ -23,6 +24,7 @@ import PaymentSuccessPage from "../Page/PymentSuccessPage";
             <Route path="/women" element={<Women/>}/>
             <Route path="/kid" element={<Kid/>} />
             <Route path="/product/:id" element={<ProductDetails/>}/>
+            <Route path="/wishlist" element={<Wishlist/>}/>
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/paymentsuccess" element={<PaymentSuccessPage/>}/>
         </Routes>
