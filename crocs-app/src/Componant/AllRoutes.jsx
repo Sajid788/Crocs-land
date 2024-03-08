@@ -12,7 +12,7 @@ import Wishlist from "../Page/Wishlist";
 import { Cart } from "../Page/Cart";
 import PaymentSuccessPage from "../Page/PymentSuccessPage";
 
-/*  All routes here to navigate any page */
+/* All routes here to navigate any page */
  const AllRoute = () => {
     return (
         <Routes>
