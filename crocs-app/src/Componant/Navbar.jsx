@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useToast } from "@chakra-ui/react";
@@ -19,6 +19,7 @@ import {
 } from "@chakra-ui/react";
 import { BsBag, BsPerson } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
+import { getCartRequest } from "../Redux/Cart/api"
 import { userLogout } from "../Redux/Auth/action";
 
 import MegaMenu from "./MegaMenu";
@@ -26,6 +27,7 @@ import Searchbar from "./SearchBar";
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { userID, name } = useSelector(({ authReducer }) => authReducer);
+  const { cart, wishlist } = useSelector(({ cartReducer }) => cartReducer);
   const { loading } = useSelector(({ authReducer }) => authReducer);
   const toast = useToast();
 
@@ -34,11 +36,18 @@ export const Navbar = () => {
     dispatch(userLogout());
     toast({
       title: "Logout successful",
+      position: "top",
       status: "success",
       duration: 3000,
       isClosable: true,
     });
   };
+
+  useEffect(() => {
+		if (userID) {
+			dispatch(getCartRequest(userID));
+		}
+	}, [userID]);
 
   return (
     <Box
@@ -155,7 +164,7 @@ export const Navbar = () => {
                 color={"blackAlpha.600"}
               >
                 Wishlist{" "}
-                {userID && (
+                {userID && wishlist && (
                   <Flex
                     justify={"center"}
                     align="center"
@@ -168,7 +177,7 @@ export const Navbar = () => {
                     borderRadius={"50%"}
                     bg="pink.400"
                   >
-                    {}
+                    {wishlist.length}
                   </Flex>
                 )}
               </Text>
@@ -198,13 +207,14 @@ export const Navbar = () => {
                     borderRadius={"50%"}
                     bg="pink.400"
                   >
-                    {}
+                    {cart.length}
                   </Flex>
                 )}
               </Text>
             </Flex>
           </Link>
-          <Box display={{ lg: "none" }}></Box>
+          <Box display={{ lg: "none" }}>
+          </Box>
         </Flex>
       </Flex>
       <Box padding={"8px"} display={{ lg: "none" }}>
