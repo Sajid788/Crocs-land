@@ -24,6 +24,7 @@ import { userLogout } from "../Redux/Auth/action";
 
 import MegaMenu from "./MegaMenu";
 import Searchbar from "./SearchBar";
+import Sidebar from "./Sidebar";
 export const Navbar = () => {
   const dispatch = useDispatch();
   const { userID, name } = useSelector(({ authReducer }) => authReducer);
@@ -214,6 +215,7 @@ export const Navbar = () => {
             </Flex>
           </Link>
           <Box display={{ lg: "none" }}>
+          <Sidebar userID={userID} handleLogout={handleLogout} />
           </Box>
         </Flex>
       </Flex>
