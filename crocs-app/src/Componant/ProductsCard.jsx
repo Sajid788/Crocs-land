@@ -1,7 +1,6 @@
 import { Button } from "@chakra-ui/button";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Select, Tooltip, useToast } from "@chakra-ui/react";
 import SingleProductImageSlider from "./SingleProductImageSlider";
@@ -42,9 +41,9 @@ export const ProductsCard = React.memo((props) => {
     if (!isAuth) {
       toast({
         title: "Please Login",
+        position: "top",
         status: "error",
         isClosable: true,
-        position: "top",
       });
       return;
     }
@@ -52,9 +51,9 @@ export const ProductsCard = React.memo((props) => {
     if (!size) {
       toast({
         title: "Please Add the Size",
+        position: "top",
         status: "error",
         isClosable: true,
-        position: "top",
       });
       return;
     }
@@ -74,13 +73,6 @@ export const ProductsCard = React.memo((props) => {
       });
       return;
     }
-    toast({
-      title: `We Are Adding Your Product`,
-      status: "warning",
-      isClosable: true,
-      position: "top",
-      duration: 1000,
-    });
     const productDetail = {
       productID: data.id,
       size: size,
