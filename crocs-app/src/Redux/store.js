@@ -4,7 +4,7 @@ import {
   compose,
   combineReducers,
 } from "redux";
-import {thunk} from "redux-thunk";
+import thunk from "redux-thunk";
 import { reducer as authReducer } from "./Auth/reducer";
 import { reducer as productReducer } from "./Product/reducer";
 import { reducer as cartReducer } from "./Cart/reducer"

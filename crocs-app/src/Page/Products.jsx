@@ -57,6 +57,7 @@ export const Products = React.memo(({ isLoading, isError, products }) => {
           gap={{ base: 4, md: 6, lg: 8 }}
           py={4}
         >
+          
           {products.map((ele) => (
 						<ProductsCard key={ele.id} data={ele} />
 					))}

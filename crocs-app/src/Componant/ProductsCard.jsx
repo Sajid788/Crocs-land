@@ -91,7 +91,7 @@ export const ProductsCard = React.memo((props) => {
       category: data.category,
       userID: userID,
       originalPrice: data.originalPrice,
-    };
+     };
 
     dispatch(addCollectionRequest(userID, [...collection, productDetail])).then(
       (res) => {
@@ -120,7 +120,7 @@ export const ProductsCard = React.memo((props) => {
       dispatch(getCartRequest(userID));
       dispatch(getWishlistRequest(userID));
     }
-  }, []);
+  },[]);
 
   return (
     <Box
@@ -239,6 +239,7 @@ export const ProductsCard = React.memo((props) => {
           margin={"auto"}
           onChange={(e) => setSlectedSize(e.target.value)}
         >
+          
           {size.map((ele, index) => {
             return (
               <option key={+index} value={ele} textAlign={"center"}>
