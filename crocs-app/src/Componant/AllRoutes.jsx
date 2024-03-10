@@ -11,6 +11,7 @@ import ProductDetails from "../Page/ProductDetails";
 import Wishlist from "../Page/Wishlist";
 import { Cart } from "../Page/Cart";
 import PaymentSuccessPage from "../Page/PymentSuccessPage";
+import NotFound from "../Page/NotFound";
 
 /* All routes here to navigate any page */
  const AllRoute = () => {
@@ -27,6 +28,9 @@ import PaymentSuccessPage from "../Page/PymentSuccessPage";
             <Route path="/wishlist" element={<Wishlist/>}/>
             <Route path="/cart" element={<Cart/>}/>
             <Route path="/paymentsuccess" element={<PaymentSuccessPage/>}/>
+
+            {/* Not Found Page Route  */}
+            <Route path="*" element={<NotFound/>} />
         </Routes>
     );
 };
