@@ -10,7 +10,7 @@ const OrderSuccessful = () => {
 			<VStack
 				margin="auto"
 				style={{
-					border: "1px solid gray",
+					// border: "1px solid gray",
 					width: "40%",
 					margin: " auto",
 					marginTop: "10PX",
@@ -19,7 +19,7 @@ const OrderSuccessful = () => {
 			>
 				<div>
 					<img
-						src="https://www.pinkwigscloset.com/images/success-tick.gif"
+						src="https://cdn.dribbble.com/users/2015153/screenshots/7442124/media/97681cd6ef4e896e8df157b1d1bdca06.gif"
 						alt="img"
 					/>
 				</div>
