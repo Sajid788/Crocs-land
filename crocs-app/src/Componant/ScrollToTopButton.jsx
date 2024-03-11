@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Box } from "@chakra-ui/react";
+import { Box, IconButton } from "@chakra-ui/react";
+import { BsArrowUpCircleFill } from "react-icons/bs";
 
 const ScrollToTopButton = () => {
   const [showButton, setShowButton] = useState(false);
@@ -16,6 +17,13 @@ const ScrollToTopButton = () => {
     };
   }, []);
 
+  const handleScrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <Box
       position="fixed"
@@ -24,6 +32,15 @@ const ScrollToTopButton = () => {
       opacity={showButton ? 1 : 0}
       transition="opacity 0.3s"
     >
+      <IconButton
+        aria-label="Scroll to Top"
+        icon={<BsArrowUpCircleFill color="white" />}
+        size="lg"
+        borderRadius="full"
+        onClick={handleScrollToTop}
+        bg={"black"}
+        _hover={{ bg: "black" }}
+      />
     </Box>
   );
 };
