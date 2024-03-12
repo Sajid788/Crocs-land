@@ -24,7 +24,7 @@ const Wishlist = () => {
     dispatch(deleteWishlistApi(userID, newWishlist));
     toast({
       title: "Deleted Successfully",
-      description: "Product deleted from cart",
+      description: "Product deleted from wishlist",
       variant: "subtle",
       status: "success",
       position: "top",

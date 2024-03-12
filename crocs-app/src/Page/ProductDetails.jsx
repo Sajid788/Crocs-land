@@ -79,14 +79,14 @@ export default function ProductDetails() {
       });
       return;
     }
-
-    toast({
-      title: `We Are Adding Your Product`,
-      status: "warning",
-      isClosable: true,
-      position: "top",
-      duration: 1000,
-    });
+   
+    // toast({
+    //   title: `We Are Adding Your Product`,
+    //   status: "warning",
+    //   isClosable: true,
+    //   position: "top",
+    //   duration: 1000,
+    // });
     const productDetail = {
       productID: data.id,
       size: size,
@@ -102,7 +102,7 @@ export default function ProductDetails() {
     dispatch(addCollectionRequest(userID, [...collection, productDetail])).then(
       (res) => {
         toast({
-          title: `Product Added into ${successMessage}`,
+          title: `Product Added to ${successMessage}`,
           status: "success",
           isClosable: true,
           position: "top",
